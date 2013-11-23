@@ -18,15 +18,15 @@
   <!-- include (handebars) template. why? -->
   <!-- 1. the browser caches it -->
   <!-- 2. we load it w/ ajax, and use src of this element! -->
-  <script id="template" type="text/x-handlebars-template" src="template.mustache"></script>
+  <script id="template" type="text/x-handlebars-template" src="templates/template.mustache"></script>
   
   <!-- include data (for handlebars template)-->
   <!-- * why? same reasons as 'template' (above) -->
-  <script id="template-data" type="application/json" charset="utf-8" src="workshop.json"></script>
+  <script id="template-data" type="application/json" charset="utf-8" src="data/workshop.json"></script>
   
   <!-- Our custom scripts to render the DOM. -->
   <!-- Needs to be loaded after jQuery, handlebars, template and data -->
-  <script type="text/javascript" charset="utf-8" src="render.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/render.js"></script>
   
   <!-- jQuery mobile  -->
   <!-- needs to be included AFTER our custom script -->
