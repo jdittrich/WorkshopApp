@@ -4,23 +4,40 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DesignStudio</title>
-  <!-- include template -->
-  <script id="template" type="text/x-handlebars-template" src="template.mustache" data-source></script>
-  <!-- include data (GLOBAL) -->
+    
+    <!-- ## stylesheets ##-->
     <link rel="stylesheet" href="bower_components/jquery-mobile-min/jquery.mobile.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+    <!-- ## JavaScript ## -->
+    <!-- include jQuery.js -->
     <script src="bower_components/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- include handlebars.js -->
     <script src="bower_components/handlebars/handlebars.min.js" type="text/javascript" charset="utf-8"></script>
+    
+  <!-- include (handebars) template. why? -->
+  <!-- 1. the browser caches it -->
+  <!-- 2. we load it w/ ajax, and use src of this element! -->
+  <script id="template" type="text/x-handlebars-template" src="template.mustache"></script>
+  
+  <!-- include data (for handlebars template)-->
+  <!-- * why? same reasons as 'template' (above) -->
   <script id="template-data" type="application/json" charset="utf-8" src="workshop.json"></script>
-  <!-- compile and render content -->
+  
+  <!-- Our custom scripts to render the DOM. -->
+  <!-- Needs to be loaded after jQuery, handlebars, template and data -->
   <script type="text/javascript" charset="utf-8" src="render.js"></script>
   
+  <!-- jQuery mobile  -->
+  <!-- needs to be included AFTER our custom script -->
   <script src="bower_components/jquery-mobile-min/jquery.mobile.min.js" type="text/javascript" charset="utf-8"></script>
   <script>
 	$( document ).on( "pageshow", function(){
-    console.log("page is ready");
+    console.log("$.mobile: page is ready");
 	});
 </script>
 </head>
 <body>
+  <kbd>NOT LOADED</kbd>
 </body>
 </html>
