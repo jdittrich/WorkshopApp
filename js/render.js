@@ -15,20 +15,26 @@ $(document).bind("mobileinit", function(){
 
   // get the template (should already be cached)
   $.get(templateUrl, function (template) {
+    
+    if (!template) {
+      console.log("No template"); return;
+    }
   
     // precompile template
     var compiledTemplate = Handlebars.compile(template);
     
     // get the data (should already be cached)
     $.getJSON(dataUrl, function (data) {
+      
+      if (!data) {
+        console.log("No data"); return;
+      }
 
       // render from compiled template with data
       var output = compiledTemplate(data);
-      console.log(output);
     
       // attach to DOM
       $('body').html(output);
-      // $(output).appendTo('body').trigger('create');
       
       // we trigger the initialization of jQuery.mobile, 
       // because we have turned off 'autoInitializePage'.
