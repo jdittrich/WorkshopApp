@@ -1,0 +1,22 @@
+{
+  "title": "My Workshop Title",
+  "participants": 5,
+  "Tasks": [
+    {
+      "id": "firstTask",
+      "title": "first Task",
+      "designTask": "Do something pretty!",
+      "durationMinutes": 5,
+      "presentTask": "Show your Design",
+      "reviewTask": "Use paper and pencils"
+    },
+    {
+      "id": "anotherTask",
+      "title": "Another Task",
+      "designTask": "Do something very pretty!",
+      "durationMinutes": 5,
+      "presentTask": "Show your iterated Design",
+      "reviewTask": "Use more paper and pencils"
+    }
+  ]
+}
