@@ -1,38 +1,34 @@
-// we bind to the 'init' event of $.mobile, 
+// We bind to the 'init' event of $.mobile, 
 // before it loaded, so it actually fires!
 $(document).bind("mobileinit", function(){
-  // before $.mobile initializes, 
-  // we change the default config here
-  
-  // we set 'autoInitializePage' to false
+  // Before $.mobile initializes, 
+  // we change the default config here.
+  // We set 'autoInitializePage' to false
   // (only) here, 'Page' means the complete site!!!
   $.mobile.autoInitializePage = false;
-  // (later, after WE have rendered the site from a template, we trigger the 'initializePage()', see below.)
+  // Later, after WE have rendered the site from a template, we trigger the 'initializePage()', see below.
 });
 
 (function render() {
-  var template = {};
-  var data = {};
+  var templateUrl = $('#template').prop('src');
+  var dataUrl = $('#template-data').prop('src');
 
-  // get the data
-  $.get($('#template').prop('src'), function (res) {
-  
-    template = res;
-    console.log(template)
+  // get the template (should already be cached)
+  $.get(templateUrl, function (template) {
   
     // precompile template
     var compiledTemplate = Handlebars.compile(template);
-  
-    $.getJSON($('#template-data').prop('src'), function (res) {
-      data = res;
-      console.log(data);
     
+    // get the data (should already be cached)
+    $.getJSON(dataUrl, function (data) {
+
       // render from compiled template with data
       var output = compiledTemplate(data);
       console.log(output);
     
       // attach to DOM
-      $(output).appendTo('body').trigger('create');
+      $('body').html(output);
+      // $(output).appendTo('body').trigger('create');
       
       // we trigger the initialization of jQuery.mobile, 
       // because we have turned off 'autoInitializePage'.
